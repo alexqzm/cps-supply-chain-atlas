@@ -1,0 +1,17 @@
+# Отрасли и классы систем, к которым относится запись.
+# Лицензия данных: CC BY 4.0 (LICENSE-DATA).
+
+schema: cps-atlas/vocab/sectors/v1
+sectors:
+  - {id: industrial-automation, label: "промышленная автоматизация (ПЛК, ПАЗ, SCADA)", cps: true}
+  - {id: energy, label: "энергетика, в том числе ВИЭ", cps: true}
+  - {id: medical, label: "медицинские изделия", cps: true}
+  - {id: automotive, label: "автомобильная электроника", cps: true}
+  - {id: uav, label: "беспилотные системы", cps: true}
+  - {id: telecom-satellite, label: "спутниковая связь", cps: false}
+  - {id: maritime-logistics, label: "морские перевозки и терминалы", cps: false}
+  - {id: consumer-iot, label: "потребительские устройства IoT", cps: false}
+  - {id: network-equipment, label: "сетевое оборудование", cps: false}
+  - {id: finance, label: "финансы и биржевая торговля", cps: false}
+  - {id: it-general, label: "ИТ общего назначения", cps: false}
+  - {id: software-dev, label: "разработка ПО и CI/CD", cps: false}

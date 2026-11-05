@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/alexqzm/cps-supply-chain-atlas/schema/record.schema.json",
+  "title": "Запись атласа атак на цепочки поставок и обновления ПО КФС",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "type", "cps_relevance", "year", "sectors", "target", "summary",
+               "positions", "facts", "scii", "confidence"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+           "description": "Совпадает с именем файла без расширения."},
+    "title": {"type": "string", "minLength": 3},
+    "aliases": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "type": {"enum": ["incident", "demonstration"],
+             "description": "incident — атака в реальной среде; demonstration — исследовательская демонстрация или раскрытие уязвимости канала обновления."},
+    "cps_relevance": {"enum": ["direct", "general"],
+                      "description": "direct — затронуты КФС или их компоненты; general — атака общего назначения, применимая к цепочкам КФС."},
+    "relevance_note": {"type": "string", "minLength": 20,
+                       "description": "Для general: почему атака применима к КФС (оценка автора)."},
+    "year": {"type": "integer", "minimum": 2000, "maximum": 2100,
+             "description": "Год раскрытия инцидента или публикации демонстрации по источникам атласа."},
+    "sectors": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "target": {"type": "string", "minLength": 5},
+    "summary": {"type": "string", "minLength": 80},
+    "positions": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "facts": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/fact"}},
+    "timeline": {"type": "array", "items": {"$ref": "#/$defs/event"}},
+    "attack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "techniques"],
+      "properties": {
+        "version": {"type": "string", "pattern": "^v\\d+$"},
+        "techniques": {"type": "array", "items": {"$ref": "#/$defs/technique"}},
+        "objects": {"type": "array", "items": {"$ref": "#/$defs/attack_object"}}
+      }
+    },
+    "slsa": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "threats"],
+      "properties": {
+        "version": {"type": "string"},
+        "threats": {"type": "array", "items": {"$ref": "#/$defs/slsa_threat"}}
+      }
+    },
+    "scii": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scope", "evidence", "assessed"],
+      "properties": {
+        "scope": {"enum": ["in", "partial", "out"],
+                  "description": "in — атака в цепочке, которую контролирует граф SCII; partial — часть пути вне её; out — вне её."},
+        "scope_note": {"type": "string", "minLength": 20},
+        "assessed": {"$ref": "#/$defs/date"},
+        "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}}
+      },
+      "if": {"properties": {"scope": {"enum": ["partial", "out"]}}},
+      "then": {"required": ["scope_note"]}
+    },
+    "confidence": {"enum": ["high", "medium", "low"]},
+    "confidence_note": {"type": "string"},
+    "notes": {"type": "array", "items": {"type": "string", "minLength": 10}}
+  },
+  "allOf": [
+    {"if": {"properties": {"cps_relevance": {"const": "general"}}},
+     "then": {"required": ["relevance_note"]}},
+    {"if": {"properties": {"confidence": {"enum": ["medium", "low"]}}},
+     "then": {"required": ["confidence_note"]}}
+  ],
+  "$defs": {
+    "date": {"type": "string", "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$"},
+    "source_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "sources"],
+      "properties": {
+        "text": {"type": "string", "minLength": 15},
+        "sources": {"$ref": "#/$defs/source_refs"},
+        "locator": {"type": "string", "minLength": 1}
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["date", "event", "sources"],
+      "properties": {
+        "date": {"$ref": "#/$defs/date"},
+        "event": {"type": "string", "minLength": 5},
+        "sources": {"$ref": "#/$defs/source_refs"}
+      }
+    },
+    "technique": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "basis"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^T\\d{4}(\\.\\d{3})?$"},
+        "basis": {"enum": ["mitre", "author"],
+                  "description": "mitre — MITRE приводит этот случай как пример процедуры; author — сопоставление автора атласа."},
+        "sources": {"$ref": "#/$defs/source_refs"},
+        "note": {"type": "string"}
+      },
+      "if": {"properties": {"basis": {"const": "mitre"}}},
+      "then": {"required": ["sources"]}
+    },
+    "attack_object": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "sources"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[CGS]\\d{4}$"},
+        "sources": {"$ref": "#/$defs/source_refs"},
+        "note": {"type": "string"}
+      }
+    },
+    "slsa_threat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "basis"],
+      "properties": {
+        "id": {"type": "string"},
+        "basis": {"enum": ["slsa", "author"],
+                  "description": "slsa — случай приведён в спецификации как пример угрозы; author — сопоставление автора."},
+        "sources": {"$ref": "#/$defs/source_refs"},
+        "note": {"type": "string"}
+      },
+      "if": {"properties": {"basis": {"const": "slsa"}}},
+      "then": {"required": ["sources"]}
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence", "state", "condition", "rationale"],
+      "properties": {
+        "evidence": {"type": "string", "pattern": "^s[1-5][1-4]$"},
+        "state": {"enum": ["P", "N", "F"]},
+        "condition": {"type": "string", "minLength": 10,
+                      "description": "При каком условии свидетельство примет это состояние."},
+        "rationale": {"type": "string", "minLength": 20}
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+id: medtronic-carelink-2018
+title: "Medtronic CareLink 2090: загрузка неподлинного ПО через сеть развёртывания"
+aliases: ["RA-68172"]
+type: demonstration
+cps_relevance: direct
+year: 2018
+sectors: [medical]
+target: "Программаторы Medtronic CareLink 2090 и CareLink Encore 29901, сеть развёртывания ПО (SDN)"
+summary: >-
+  В августе 2018 г. на Black Hat USA Billy Rios и Jonathan Butts показали, что программаторы
+  имплантируемых кардиоустройств Medtronic не подтверждают подлинность загружаемого ПО. По
+  уведомлению Health Canada, уязвимости процесса загрузки через SDN могли позволить обновить
+  программаторы ПО не от Medtronic; сообщений о таких случаях не было. Medtronic отключила SDN
+  для обновления программаторов.
+positions: [distribution]
+facts:
+  - text: >-
+      На Black Hat USA в августе 2018 г. Billy Rios (WhiteScope) и Jonathan Butts (QED Secure
+      Solutions) показали уязвимости программаторов; программаторы не подтверждают подлинность
+      загружаемого ПО.
+    sources: [startribune-medtronic]
+  - text: >-
+      Уязвимости процесса загрузки через SDN могли позволить злоумышленнику обновить программаторы
+      ПО не от Medtronic; Medtronic сообщила, что таких случаев не зафиксировано.
+    sources: [healthcanada-carelink]
+  - text: "Medtronic отключает SDN для обновления программаторов; обновления выполняются только через USB."
+    sources: [healthcanada-carelink]
+  - text: >-
+      05.10.2018 FDA одобрила изменения сети, блокирующие доступ этих программаторов к SDN;
+      исправления безопасности для самих программаторов не было.
+    sources: [startribune-medtronic]
+timeline:
+  - {date: "2018-10-08", event: "Начало отзыва (Health Canada)", sources: [healthcanada-carelink]}
+  - {date: "2018-10-15", event: "Публикация Star Tribune", sources: [startribune-medtronic]}
+slsa:
+  version: "1.2"
+  threats:
+    - {id: G, basis: author, note: "канал доставки обновлений без проверки подлинности"}
+scii:
+  scope: in
+  assessed: "2026-11-05"
+  evidence:
+    - evidence: s42
+      state: F
+      condition: "Программатор проверяет подпись пакета ключом производителя до установки."
+      rationale: "Посторонний пакет не подписан ключом Medtronic."
+    - evidence: s53
+      state: N
+      condition: "Установка требует квитанцию допуска, выданную для конкретного программатора."
+      rationale: "У постороннего пакета квитанции допуска нет."
+confidence: high
+notes:
+  - "Star Tribune пишет, что обновления будут выполнять сотрудники Medtronic на месте; Health Canada — что обновления пойдут только через USB."

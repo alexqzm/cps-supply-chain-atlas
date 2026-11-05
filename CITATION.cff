@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "Если вы используете эти данные или код, сошлитесь на них так."
+title: "cps-supply-chain-atlas: атлас атак на цепочки поставок и обновления ПО киберфизических систем"
+type: dataset
+version: 0.1.0
+license:
+  - CC-BY-4.0
+  - Apache-2.0
+repository-code: "https://github.com/alexqzm/cps-supply-chain-atlas"
+authors:
+  - family-names: Kuzmin
+    given-names: Alexander
+    orcid: "https://orcid.org/0000-0002-0393-412X"
+keywords:
+  - software supply chain
+  - cyber-physical systems
+  - industrial control systems
+  - firmware update
+  - MITRE ATT&CK
+  - SLSA
+  - GOST R 56939-2024
+  - evidence graph
+  - dataset
+references:
+  - type: software
+    title: "scii-gate: гейт допуска обновлений ПО киберфизических систем по графу доказательств"
+    doi: 10.5281/zenodo.23833592
+    repository-code: "https://github.com/alexqzm/scii-gate"
+    authors:
+      - family-names: Kuzmin
+        given-names: Alexander
+        orcid: "https://orcid.org/0000-0002-0393-412X"
+  - type: software
+    title: "rbpo-evidence: ГОСТ Р 56939-2024 как граф доказательств"
+    repository-code: "https://github.com/alexqzm/rbpo-evidence"
+    authors:
+      - family-names: Kuzmin
+        given-names: Alexander
+        orcid: "https://orcid.org/0000-0002-0393-412X"
+  - type: software
+    title: "source-match: свидетельство «выпускной архив соответствует подписанному тегу»"
+    repository-code: "https://github.com/alexqzm/source-match"
+    authors:
+      - family-names: Kuzmin
+        given-names: Alexander
+        orcid: "https://orcid.org/0000-0002-0393-412X"

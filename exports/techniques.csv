@@ -1,0 +1,37 @@
+record,technique,domain,name,basis,sources,note
+badbox2-2025,T1195,enterprise,Supply Chain Compromise,author,,заражение до поставки потребителю
+contec-cms8000-2025,T0862,ics,Supply Chain Compromise,author,,опасная функция поступает к потребителю вместе с изделием
+dofun-head-units-2026,T1195,enterprise,Supply Chain Compromise,author,,
+earth-ammit-2025,T1195.002,enterprise,Supply Chain Compromise: Compromise Software Supply Chain,author,,
+havex-2014,T0862,ics,Supply Chain Compromise,mitre,mitre-t0862,
+havex-2014,T1195.002,enterprise,Supply Chain Compromise: Compromise Software Supply Chain,mitre,mitre-t1195-002,
+node-ipc-2022,T1195.001,enterprise,Supply Chain Compromise: Compromise Software Dependencies and Development Tools,author,,
+notpetya-medoc-2017,T1195.002,enterprise,Supply Chain Compromise: Compromise Software Supply Chain,mitre,mitre-t1195-002,
+nx-s1ngularity-2025,T1195.001,enterprise,Supply Chain Compromise: Compromise Software Dependencies and Development Tools,author,,
+plc-blaster-2016,T0843.003,ics,Program Download: Program Append,author,,копия червя добавляется отдельным блоком
+plc-firmware-modification-2013,T1693.001,ics,Modify Firmware: System Firmware,author,,
+plc-password-tools-2022,T0863,ics,User Execution,author,,инженер сам запускает полученную программу
+rogue7-2019,T0843,ics,Program Download,author,,
+schneider-conext-usb-2018,T0862,ics,Supply Chain Compromise,author,,заражение поставляемых с изделием носителей; целенаправленность не установлена
+schneider-conext-usb-2018,T0847,ics,Replication Through Removable Media,author,,
+shadowhammer-2019,T1195.002,enterprise,Supply Chain Compromise: Compromise Software Supply Chain,author,,
+solarwinds-2020,T1195.002,enterprise,Supply Chain Compromise: Compromise Software Supply Chain,mitre,mitre-t1195-002,
+stuxnet-2010,T0889,ics,Modify Program,author,,внедрение блоков кода в программу ПЛК
+stuxnet-2010,T0851,ics,Rootkit,author,,сокрытие внедрённых блоков при чтении
+tanstack-2026,T1195.001,enterprise,Supply Chain Compromise: Compromise Software Dependencies and Development Tools,author,,
+tj-actions-2025,T1195.001,enterprise,Supply Chain Compromise: Compromise Software Dependencies and Development Tools,author,,
+triton-2017,T0843,ics,Program Download,author,,загрузка программы в контроллер по TriStation
+triton-2017,T0821,ics,Modify Controller Tasking,author,,добавление программы в таблицу исполнения
+ukraine-grid-2015,T1693.001,ics,Modify Firmware: System Firmware,mitre,mitre-c0028,
+ukraine-grid-2015,T1695.001,ics,Block Communications: Serial COM,mitre,mitre-c0028,
+ukraine-grid-2015,T0813,ics,Denial of Control,mitre,mitre-c0028,
+ukraine-grid-2015,T0822,ics,External Remote Services,mitre,mitre-c0028,
+ukraine-grid-2015,T0859,ics,Valid Accounts,mitre,mitre-c0028,
+ukraine-grid-2015,T0831,ics,Manipulation of Control,mitre,mitre-c0028,
+ukraine-grid-2015,T0826,ics,Loss of Availability,mitre,mitre-c0028,
+ukraine-grid-2015,T0816,ics,Device Restart/Shutdown,mitre,mitre-c0028,
+viasat-ka-sat-2022,T0822,ics,External Remote Services,author,,вход через VPN-устройство с ошибкой конфигурации
+viasat-ka-sat-2022,T0809,ics,Data Destruction,author,,перезапись данных во флеш-памяти модемов
+viasat-ka-sat-2022,T0829,ics,Loss of View,author,,потеря удалённого мониторинга ветроустановок
+xtrader-3cx-2023,T1195.002,enterprise,Supply Chain Compromise: Compromise Software Supply Chain,mitre,mitre-t1195-002,
+xz-utils-2024,T1195.001,enterprise,Supply Chain Compromise: Compromise Software Dependencies and Development Tools,author,,

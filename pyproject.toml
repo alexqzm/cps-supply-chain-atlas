@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cps-supply-chain-atlas"
+dynamic = ["version"]
+description = "Атлас атак на цепочки поставок и обновления ПО киберфизических систем: данные с проверенными источниками и инструменты проверки и выгрузки"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "LICENSE-DATA"]
+requires-python = ">=3.10"
+authors = [{name = "Alexander Kuzmin"}]
+keywords = ["software supply chain", "cyber-physical systems", "ICS", "firmware update", "MITRE ATT&CK",
+            "SLSA", "ГОСТ Р 56939", "evidence graph", "dataset"]
+dependencies = ["pyyaml>=5.4", "jsonschema>=4.18"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+cps-atlas = "cps_atlas.cli:main"
+
+[project.urls]
+Repository = "https://github.com/alexqzm/cps-supply-chain-atlas"
+
+[tool.hatch.version]
+path = "cps_atlas/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["cps_atlas"]
+
+[tool.hatch.build.targets.sdist]
+exclude = ["/.github"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

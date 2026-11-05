@@ -1,0 +1,80 @@
+id: solarwinds-2020
+title: "SolarWinds Orion: внедрение SUNBURST при сборке (SUNSPOT)"
+aliases: ["SUNBURST", "SUNSPOT", "C0024"]
+type: incident
+cps_relevance: general
+relevance_note: >-
+  Компрометация сборочной среды производителя: результат сборки подписан и распространяется
+  штатным каналом. Сборка встроенного ПО КФС подвержена тому же классу атак (оценка автора).
+year: 2020
+sectors: [it-general]
+target: "Сборочная среда SolarWinds Orion"
+summary: >-
+  Программа SUNSPOT на сборочном сервере отслеживала запуск MsBuild.exe, на время сборки Orion
+  подменяла исходный файл InventoryManager.cs версией с бэкдором SUNBURST и после сборки
+  восстанавливала исходный файл. Троянизированные обновления, выпущенные с марта по май 2020 г.,
+  имели цифровую подпись SolarWinds и размещались на её сайте обновлений.
+positions: [build]
+facts:
+  - text: >-
+      SUNSPOT ежесекундно отслеживал процессы MsBuild.exe, по командной строке находил сборку
+      Orion и до чтения компилятором подменял файл InventoryManager.cs версией с бэкдором.
+    sources: [crowdstrike-sunspot]
+  - text: >-
+      SUNSPOT ждал завершения MsBuild.exe и восстанавливал исходный файл; при успешной сборке её
+      результат содержал SUNBURST.
+    sources: [crowdstrike-sunspot]
+  - text: "Исследованный файл SUNSPOT, по метке времени сборки, вероятно создан 20.02.2020."
+    sources: [crowdstrike-sunspot]
+  - text: >-
+      SolarWinds.Orion.Core.BusinessLayer.dll — компонент Orion с цифровой подписью SolarWinds;
+      несколько троянизированных обновлений были подписаны с марта по май 2020 г. и размещены на
+      сайте обновлений SolarWinds.
+    sources: [mandiant-sunburst]
+  - text: "После установки бэкдор выжидал до двух недель."
+    sources: [mandiant-sunburst]
+  - text: "Спецификация SLSA приводит SolarWinds как пример угрозы E (процесс сборки)."
+    sources: [slsa-threats]
+timeline:
+  - {date: "2020-12-13", event: "Публикация FireEye о SUNBURST", sources: [mandiant-sunburst]}
+  - {date: "2021-01-11", event: "Публикация CrowdStrike о SUNSPOT", sources: [crowdstrike-sunspot]}
+attack:
+  version: v20
+  techniques:
+    - {id: T1195.002, basis: mitre, sources: [mitre-t1195-002]}
+  objects:
+    - {id: C0024, sources: [mitre-t1195-002]}
+    - {id: S0562, sources: [mitre-t1195-002]}
+slsa:
+  version: "1.2"
+  threats:
+    - {id: E, basis: slsa, sources: [slsa-threats]}
+scii:
+  scope: in
+  assessed: "2026-11-05"
+  evidence:
+    - evidence: s14
+      state: P
+      condition: "Тег выпуска подписан, и подпись проверяется."
+      rationale: "Исходный код в системе управления исходным кодом не менялся: подмена существовала только во время сборки."
+    - evidence: s21
+      state: P
+      condition: "Сборочный агент подписывает результат своим ключом."
+      rationale: "Сборка шла на штатном сборочном сервере."
+    - evidence: s22
+      state: P
+      condition: "Аттестацию происхождения формирует тот же сборочный сервер."
+      rationale: "Аттестация верно укажет исходную ревизию, но не подмену файла на диске во время сборки."
+    - evidence: s42
+      state: P
+      condition: "Пакет обновления подписан ключом производителя."
+      rationale: "Троянизированные обновления были подписаны SolarWinds."
+    - evidence: s24
+      state: F
+      condition: "Та же ревизия независимо пересобирается в отдельной среде, и результаты сравниваются."
+      rationale: "Независимая сборка не содержит SUNBURST и не совпадёт с выпуском."
+    - evidence: s23
+      state: F
+      condition: "Сборка воспроизводима побитно."
+      rationale: "Воспроизводимость делает расхождение с независимой сборкой доказательным, а не объяснимым недетерминизмом."
+confidence: high

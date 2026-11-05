@@ -1,0 +1,55 @@
+id: schneider-conext-usb-2018
+title: "Вредоносное ПО на USB-носителях Schneider Electric Conext"
+type: incident
+cps_relevance: direct
+year: 2018
+sectors: [energy]
+target: "USB-носители с документацией и утилитами в комплекте Conext ComBox и Conext Battery Monitor"
+summary: >-
+  USB-носители, которые поставлялись с изделиями Conext ComBox и Conext Battery Monitor для
+  солнечных энергосистем, были заражены вредоносным ПО на производстве у стороннего поставщика.
+  На носителях находились документация и вспомогательные утилиты; по заявлению Schneider
+  Electric, на работу и безопасность изделий это не влияло. Тип вредоносного ПО не назван.
+positions: [manufacturing, distribution]
+facts:
+  - text: >-
+      Затронуты все версии Conext ComBox (артикул 865-1058) и Conext Battery Monitor (артикул
+      865-1080-01), поставлявшиеся с этими носителями.
+    sources: [securityweek-schneider-usb]
+  - text: "USB-носители были заражены вредоносным ПО при изготовлении на площадке стороннего поставщика."
+    sources: [securityweek-schneider-usb]
+  - text: >-
+      На носителях записаны документация пользователя и необязательные утилиты; по заявлению
+      Schneider Electric, проблема не влияет на работу и безопасность изделий.
+    sources: [securityweek-schneider-usb]
+  - text: >-
+      Schneider Electric выпустила уведомление SESN-2018-236-01 и рекомендовала не использовать
+      носители и надёжно их утилизировать; тип вредоносного ПО на момент публикации не раскрыт.
+    sources: [securityweek-schneider-usb]
+timeline:
+  - {date: "2018-09-06", event: "Публикация SecurityWeek об уведомлении Schneider Electric", sources: [securityweek-schneider-usb]}
+attack:
+  version: v20
+  techniques:
+    - {id: T0862, basis: author, note: "заражение поставляемых с изделием носителей; целенаправленность не установлена"}
+    - {id: T0847, basis: author}
+slsa:
+  version: "1.2"
+  threats:
+    - {id: G, basis: author, note: "носитель в комплекте поставки как канал распространения"}
+scii:
+  scope: in
+  assessed: "2026-11-05"
+  evidence:
+    - evidence: s42
+      state: F
+      condition: "Содержимое носителя подписано производителем, и подпись по всему составу проверяется до использования."
+      rationale: "Файлы вредоносного ПО не входят в подписанный состав; проверка покажет лишние или изменённые файлы."
+    - evidence: s41
+      state: F
+      condition: "Состав носителя сверяется с перечнем компонентов или манифестом поставки."
+      rationale: "Лишние исполняемые файлы на носителе в перечень не входят."
+confidence: medium
+confidence_note: >-
+  Сведения — по SecurityWeek, цитирующему уведомление Schneider Electric; само уведомление
+  SESN-2018-236-01 не открывалось.

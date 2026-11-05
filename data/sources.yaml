@@ -1,0 +1,413 @@
+# Источники атласа. Каждый факт записи ссылается на источник по id.
+# checked — дата, когда автор сверил с источником факты, которые на него ссылаются.
+# date — дата публикации по странице источника; null — на странице не указана.
+# Лицензия данных: CC BY 4.0 (LICENSE-DATA). Права на сами источники принадлежат их авторам.
+
+schema: cps-atlas/sources/v1
+sources:
+  # --- Фреймворки ---
+  - id: mitre-ics-matrix
+    title: "ATT&CK Matrix for ICS"
+    publisher: "MITRE"
+    date: null
+    url: "https://attack.mitre.org/matrices/ics"
+    kind: framework
+    language: en
+    checked: "2026-11-05"
+    note: "ATT&CK v20 (контент v20.0)."
+  - id: mitre-t0862
+    title: "Supply Chain Compromise (T0862), ATT&CK for ICS"
+    publisher: "MITRE"
+    date: "2026-10-13"
+    url: "https://attack.mitre.org/techniques/T0862"
+    kind: framework
+    language: en
+    checked: "2026-11-05"
+    note: "Дата — последнее изменение страницы; версия техники 1.1, ATT&CK v20."
+  - id: mitre-t1195
+    title: "Supply Chain Compromise (T1195), ATT&CK Enterprise"
+    publisher: "MITRE"
+    date: "2025-10-24"
+    url: "https://attack.mitre.org/techniques/T1195/"
+    kind: framework
+    language: en
+    checked: "2026-11-05"
+    note: "Дата — последнее изменение страницы; версия техники 1.7, ATT&CK v20."
+  - id: mitre-t1195-002
+    title: "Supply Chain Compromise: Compromise Software Supply Chain (T1195.002), ATT&CK Enterprise"
+    publisher: "MITRE"
+    date: "2025-10-24"
+    url: "https://attack.mitre.org/techniques/T1195/002"
+    kind: framework
+    language: en
+    checked: "2026-11-05"
+    note: "Дата — последнее изменение страницы; ATT&CK v20."
+  - id: mitre-c0028
+    title: "2015 Ukraine Electric Power Attack (C0028)"
+    publisher: "MITRE"
+    date: "2026-08-04"
+    url: "https://attack.mitre.org/campaigns/C0028"
+    kind: framework
+    language: en
+    checked: "2026-11-05"
+    note: "Дата — последнее изменение страницы; ATT&CK v20."
+  - id: slsa-threats
+    title: "Supply chain threats (SLSA v1.2)"
+    publisher: "OpenSSF, SLSA"
+    date: null
+    url: "https://slsa.dev/spec/latest/threats-overview"
+    kind: framework
+    language: en
+    checked: "2026-11-05"
+    note: "На 05.11.2026 адрес latest ведёт на спецификацию v1.2."
+
+  # --- Инциденты, КФС ---
+  - id: symantec-stuxnet-dossier
+    title: "W32.Stuxnet Dossier (version 1.4)"
+    authors: ["Nicolas Falliere", "Liam O Murchu", "Eric Chien"]
+    publisher: "Symantec"
+    date: "2011-02"
+    url: "https://docs.broadcom.com/doc/security-response-w32-stuxnet-dossier-11-en"
+    kind: vendor-report
+    language: en
+    checked: "2026-10-09"
+  - id: cisa-icsa-14-178-01
+    title: "ICS Focused Malware (ICSA-14-178-01)"
+    publisher: "CISA (ICS-CERT)"
+    date: null
+    updated: "2021-07-20"
+    url: "https://cisa.gov/news-events/ics-advisories/icsa-14-178-01"
+    kind: government-advisory
+    language: en
+    checked: "2026-11-05"
+    note: "Дата выпуска на странице не указана; документ продолжает оповещение ICS-ALERT-14-176-02A, опубликованное, по странице, 27.06.2014."
+  - id: securityweek-havex
+    title: "Attackers Using Havex RAT Against Industrial Control Systems"
+    authors: ["Eduard Kovacs"]
+    publisher: "SecurityWeek"
+    date: "2014-06-24"
+    url: "https://www.securityweek.com/attackers-using-havex-rat-against-industrial-control-systems/"
+    kind: news
+    language: en
+    checked: "2026-11-05"
+  - id: mandiant-triton
+    title: "Attackers Deploy New ICS Attack Framework “TRITON” and Cause Operational Disruption to Critical Infrastructure"
+    authors: ["Blake Johnson", "Dan Caban", "Marina Krotofil", "Dan Scali", "Nathan Brubaker", "Christopher Glyer"]
+    publisher: "Mandiant (Google Cloud Blog)"
+    date: "2017-12-14"
+    url: "https://cloud.google.com/blog/topics/threat-intelligence/attackers-deploy-new-ics-attack-framework-triton"
+    kind: vendor-report
+    language: en
+    checked: "2026-11-05"
+  - id: securityweek-schneider-usb
+    title: "Malware Found on USB Drives Shipped With Schneider Solar Products"
+    authors: ["Eduard Kovacs"]
+    publisher: "SecurityWeek"
+    date: "2018-09-06"
+    url: "https://www.securityweek.com/malware-found-usb-drives-shipped-schneider-solar-products/"
+    kind: news
+    language: en
+    checked: "2026-11-05"
+    note: "Цитирует уведомление Schneider Electric SESN-2018-236-01; само уведомление не открывалось."
+  - id: dragos-password-tools
+    title: "The Trojan Horse Malware & Password “Cracking” Ecosystem Targeting Industrial Operators"
+    authors: ["Sam Hanson"]
+    publisher: "Dragos"
+    date: "2022-07-14"
+    url: "https://www.dragos.com/blog/the-trojan-horse-malware-password-cracking-ecosystem-targeting-industrial-operators/"
+    kind: vendor-report
+    language: en
+    checked: "2026-11-05"
+  - id: viasat-kasat
+    title: "KA-SAT Network cyber attack overview"
+    publisher: "Viasat"
+    date: "2022-03-30"
+    url: "https://www.viasat.com/perspectives/corporate/2022/ka-sat-network-cyber-attack-overview/"
+    kind: vendor-statement
+    language: en
+    checked: "2026-11-05"
+  - id: reuters-enercon
+    title: "Satellite outage knocks out thousands of Enercon's wind turbines"
+    publisher: "Reuters (публикация Euronews)"
+    date: "2022-02-28"
+    url: "https://www.euronews.com/next/2022/02/28/ukraine-crisis-cyber-enercon"
+    kind: news
+    language: en
+    checked: "2026-11-05"
+    note: "Дата — по адресу страницы."
+  - id: energate-enercon
+    title: "Enercon: thousands of wind turbines need new hardware"
+    publisher: "energate messenger"
+    date: null
+    url: "https://www.energate-messenger.com/news/220914/enercon-thousands-of-wind-turbines-need-new-hardware"
+    kind: news
+    language: en
+    checked: "2026-11-05"
+    note: "Заголовок — по адресу страницы; дата на странице не указана."
+  - id: trend-earth-ammit
+    title: "Earth Ammit Disrupts Drone Supply Chains Through Coordinated Multi-Wave Attacks in Taiwan"
+    authors: ["Pierre Lee", "Vickie Su", "Philip Chen"]
+    publisher: "Trend Micro"
+    date: "2025-05-13"
+    url: "https://trendmicro.com/en_us/research/25/e/earth-ammit.html"
+    kind: vendor-report
+    language: en
+    checked: "2026-11-05"
+  - id: cisa-icsma-25-030-01
+    title: "Contec Health CMS8000 Patient Monitor (Update A), ICSMA-25-030-01"
+    publisher: "CISA"
+    date: "2025-01-30"
+    updated: "2025-02-25"
+    url: "https://cisa.gov/news-events/ics-medical-advisories/icsma-25-030-01"
+    kind: government-advisory
+    language: en
+    checked: "2026-11-05"
+  - id: fbi-badbox2
+    title: "Home Internet Connected Devices Facilitate Criminal Activity (I-060525-PSA)"
+    publisher: "FBI, Internet Crime Complaint Center"
+    date: "2025-06-05"
+    url: "https://www.ic3.gov/psa/2025/psa250605"
+    kind: government-advisory
+    language: en
+    checked: "2026-11-05"
+  - id: securelist-headunits
+    title: "The invisible passenger in your car"
+    authors: ["Dmitry Kalinin"]
+    publisher: "Kaspersky, Securelist"
+    date: "2026-08-21"
+    url: "https://securelist.com/android-head-unit-malware/121106/"
+    kind: vendor-report
+    language: en
+    checked: "2026-11-05"
+
+  # --- Инциденты общего назначения ---
+  - id: ms-advisory-2718704
+    title: "Microsoft releases Security Advisory 2718704"
+    authors: ["Mike Reavey"]
+    publisher: "Microsoft, MSRC (архив блога)"
+    date: "2012-06-03"
+    url: "https://learn.microsoft.com/en-us/archive/blogs/sus/microsoft-releases-security-advisory-2718704"
+    kind: vendor-statement
+    language: en
+    checked: "2026-11-05"
+  - id: mcafee-flame-wu
+    title: "Spreading the Flame: Skywiper Employs ‘Windows Update’"
+    publisher: "McAfee Labs"
+    date: "2012-06-04"
+    url: "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/spreading-the-flame-skywiper-employs-windows-update/"
+    kind: vendor-report
+    language: en
+    checked: "2026-11-05"
+  - id: talos-medoc
+    title: "The MeDoc Connection"
+    authors: ["David Maynor", "Matt Olney", "Yves Younan"]
+    publisher: "Cisco Talos"
+    date: "2017-07-05"
+    url: "https://blog.talosintelligence.com/the-medoc-connection/"
+    kind: vendor-report
+    language: en
+    checked: "2026-11-05"
+  - id: computerweekly-maersk
+    title: "NotPetya attack cost up to $300m, says Maersk"
+    publisher: "Computer Weekly"
+    date: null
+    url: "https://www.computerweekly.com/news/450424559/NotPetya-attack-cost-up-to-300m-says-Maersk"
+    kind: news
+    language: en
+    checked: "2026-11-05"
+    note: "Дата на странице не указана; статья о промежуточном отчёте Maersk за II квартал 2017 г."
+  - id: mandiant-sunburst
+    title: "Highly Evasive Attacker Leverages SolarWinds Supply Chain to Compromise Multiple Global Victims With SUNBURST Backdoor"
+    publisher: "FireEye (Mandiant, Google Cloud Blog)"
+    date: "2020-12-13"
+    url: "https://cloud.google.com/blog/topics/threat-intelligence/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor"
+    kind: vendor-report
+    language: en
+    checked: "2026-11-05"
+  - id: crowdstrike-sunspot
+    title: "SUNSPOT: An Implant in the Build Process"
+    authors: ["CrowdStrike Intelligence Team"]
+    publisher: "CrowdStrike"
+    date: "2021-01-11"
+    url: "https://crowdstrike.com/en-us/blog/sunspot-malware-technical-analysis"
+    kind: vendor-report
+    language: en
+    checked: "2026-11-05"
+  - id: mandiant-3cx
+    title: "3CX Software Supply Chain Compromise Initiated by a Prior Software Supply Chain Compromise; Suspected North Korean Actor Responsible"
+    authors: ["Jeff Johnson", "Fred Plan", "Adrian Sanchez", "Renato Fontana", "Jake Nicastro", "Dimiter Andonov", "Marius Fodoreanu", "Daniel Scott"]
+    publisher: "Mandiant (Google Cloud Blog)"
+    date: "2023-04-20"
+    url: "https://cloud.google.com/blog/topics/threat-intelligence/3cx-software-supply-chain-compromise"
+    kind: vendor-report
+    language: en
+    checked: "2026-11-05"
+  - id: symantec-xtrader
+    title: "X_Trader Supply Chain Attack Affects Critical Infrastructure Organizations in U.S. and Europe"
+    authors: ["Threat Hunter Team"]
+    publisher: "Symantec (Broadcom)"
+    date: "2023-04-21"
+    url: "https://www.security.com/threat-intelligence/xtrader-3cx-supply-chain"
+    kind: vendor-report
+    language: en
+    checked: "2026-11-05"
+  - id: securelist-shadowhammer
+    title: "Operation ShadowHammer"
+    authors: ["GReAT"]
+    publisher: "Kaspersky, Securelist"
+    date: "2019-03-25"
+    url: "https://securelist.com/operation-shadowhammer/89992/"
+    kind: vendor-report
+    language: en
+    checked: "2026-11-05"
+  - id: collin-xz
+    title: "XZ Utils backdoor"
+    authors: ["Lasse Collin"]
+    publisher: "Tukaani Project"
+    date: null
+    url: "https://tukaani.org/xz-backdoor/"
+    kind: vendor-statement
+    language: en
+    checked: "2026-10-10"
+  - id: freund-xz
+    title: "backdoor in upstream xz/liblzma leading to ssh server compromise"
+    authors: ["Andres Freund"]
+    publisher: "oss-security"
+    date: "2024-03-29"
+    url: "https://www.openwall.com/lists/oss-security/2024/03/29/4"
+    kind: mailing-list
+    language: en
+    checked: "2026-11-05"
+    note: "Сверено по цитате письма в ответе той же ветки: https://seclists.org/oss-sec/2024/q1/272"
+  - id: source-match-survey
+    title: "source-match: обзор выпускных архивов 18 проектов (данные на 05.11.2026)"
+    authors: ["Alexander Kuzmin"]
+    publisher: "GitHub, alexqzm/source-match"
+    date: "2026-11-05"
+    url: "https://github.com/alexqzm/source-match/blob/939ab5f07902ebaf78a3163a2f9277dedd375475/survey/results/2026-11-05/summary.md"
+    kind: dataset
+    language: ru
+    checked: "2026-11-05"
+  - id: ghsa-tj-actions
+    title: "tj-actions changed-files through 45.0.7 allows remote attackers to discover secrets by reading actions logs (GHSA-mrrh-fwg8-r2c3, CVE-2025-30066)"
+    publisher: "GitHub Advisory Database"
+    date: "2025-03-15"
+    updated: "2025-10-22"
+    url: "https://github.com/advisories/GHSA-mrrh-fwg8-r2c3"
+    kind: vendor-advisory
+    language: en
+    checked: "2026-11-05"
+  - id: nx-postmortem
+    title: "S1ngularity - What Happened, How We Responded, What We Learned"
+    authors: ["Juri Strumpflohner"]
+    publisher: "Nx"
+    date: "2025-09-05"
+    url: "https://nx.dev/blog/s1ngularity-postmortem"
+    kind: postmortem
+    language: en
+    checked: "2026-11-05"
+  - id: tanstack-postmortem
+    title: "Hardening TanStack After the npm Compromise"
+    authors: ["Sarah Gerrard", "Corbin Crutchley", "Jack Herrington", "Tanner Linsley", "Florian Pellet", "Harry Whorlow"]
+    publisher: "TanStack"
+    date: "2026-05-12"
+    updated: "2026-05-15"
+    url: "https://tanstack.com/blog/incident-followup"
+    kind: postmortem
+    language: en
+    checked: "2026-11-05"
+  - id: register-node-ipc
+    title: "JavaScript library updated to wipe files from Russian computers"
+    authors: ["Liam Proven"]
+    publisher: "The Register"
+    date: "2022-03-18"
+    url: "https://www.theregister.com/2022/03/18/protestware_javascript_node_ipc/"
+    kind: news
+    language: en
+    checked: "2026-11-05"
+
+  # --- Демонстрации ---
+  - id: basnight-2013
+    title: "Firmware modification attacks on programmable logic controllers"
+    authors: ["Zachry Basnight", "Jonathan Butts", "Juan Lopez", "Thomas Dube"]
+    publisher: "International Journal of Critical Infrastructure Protection, 6(2), 76–84 (Elsevier)"
+    date: "2013"
+    url: "https://ideas.repec.org/a/eee/ijocip/v6y2013i2p76-84.html"
+    kind: research-paper
+    language: en
+    checked: "2026-11-05"
+    note: "DOI 10.1016/j.ijcip.2013.04.004. Сверено по аннотации (IDEAS/RePEc); полный текст платный."
+  - id: schuett-2014
+    title: "Programmable Logic Controller Modification Attacks for Use in Detection Analysis (AFIT-ENG-14-M-66)"
+    authors: ["Carl D. Schuett"]
+    publisher: "Air Force Institute of Technology (магистерская диссертация)"
+    date: "2014-03"
+    url: "https://core.ac.uk/download/277527637.pdf"
+    kind: thesis
+    language: en
+    checked: "2026-11-05"
+  - id: ioactive-jeep
+    title: "Remote Exploitation of an Unaltered Passenger Vehicle"
+    authors: ["Charlie Miller", "Chris Valasek"]
+    publisher: "IOActive"
+    date: "2015"
+    url: "https://www.ioactive.com/pdfs/IOActive_Remote_Car_Hacking.pdf"
+    kind: research-paper
+    language: en
+    checked: "2026-11-05"
+  - id: bh-plc-blaster
+    title: "PLC-Blaster: A Worm Living Solely in the PLC"
+    authors: ["Ralf Spenneberg", "Maik Brüggemann", "Hendrik Schwartke"]
+    publisher: "OpenSource Security; материалы Black Hat USA 2016"
+    date: "2016"
+    url: "https://www.blackhat.com/docs/us-16/materials/us-16-Spenneberg-PLC-Blaster-A-Worm-Living-Solely-In-The-PLC-wp.pdf"
+    kind: conference-talk
+    language: en
+    checked: "2026-11-05"
+    note: "Конференция и год — по адресу материалов (us-16); в самом документе не указаны."
+  - id: bh-rogue7
+    title: "Rogue7: Rogue Engineering Station Attacks on Simatic S7 PLCs"
+    authors: ["Eli Biham", "Sara Bitan", "Aviad Carmel", "Alon Dankner", "Uriel Malin", "Avishai Wool"]
+    publisher: "Technion, Tel Aviv University; материалы Black Hat USA 2019"
+    date: "2019"
+    url: "https://i.blackhat.com/USA-19/Thursday/us-19-Bitan-Rogue7-Rogue-Engineering-Station-Attacks-On-S7-Simatic-PLCs.pdf"
+    kind: conference-talk
+    language: en
+    checked: "2026-11-05"
+    note: "Слайды; конференция и год — по адресу материалов."
+  - id: healthcanada-carelink
+    title: "CareLink 2090 Programmer and CareLink Encore 29901 Programmer (RA-68172)"
+    publisher: "Health Canada"
+    date: "2018-11-02"
+    url: "https://recalls-rappels.canada.ca/en/alert-recall/carelink-2090-programmer-and-carelink-encore-29901-programmer-2018-10-08"
+    kind: recall-notice
+    language: en
+    checked: "2026-11-05"
+    note: "Отзыв начат 08.10.2018, уведомление размещено 02.11.2018."
+  - id: startribune-medtronic
+    title: "Medtronic cuts cyber access to vulnerable devices"
+    authors: ["Joe Carlson"]
+    publisher: "Star Tribune"
+    date: "2018-10-15"
+    url: "https://www.startribune.com/medtronic-cuts-cyber-access-to-vulnerable-devices/497612541"
+    kind: news
+    language: en
+    checked: "2026-11-05"
+  - id: cisco-sa-secureboot
+    title: "Cisco Secure Boot Hardware Tampering Vulnerability (cisco-sa-20190513-secureboot)"
+    publisher: "Cisco"
+    date: "2019-05-13"
+    updated: "2019-11-20"
+    url: "https://www.cisco.com/c/en/us/support/docs/csa/cisco-sa-20190513-secureboot.html"
+    kind: vendor-advisory
+    language: en
+    checked: "2026-11-05"
+  - id: securityaffairs-thrangrycat
+    title: "Thrangrycat flaw could allow compromising millions of Cisco devices"
+    authors: ["Pierluigi Paganini"]
+    publisher: "Security Affairs"
+    date: "2019-05-14"
+    url: "https://securityaffairs.com/85500/hacking/thrangrycat-flaw-cisco-devices.html"
+    kind: news
+    language: en
+    checked: "2026-11-05"

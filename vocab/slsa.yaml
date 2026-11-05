@@ -1,0 +1,19 @@
+# Угрозы цепочки поставок по SLSA v1.2 (страница «Supply chain threats», slsa.dev/spec/latest,
+# сверено 05.11.2026). Буквы и названия — как в спецификации; example — пример из спецификации.
+# Группировка угроз в спецификации не задана и здесь не приводится.
+
+schema: cps-atlas/vocab/slsa/v1
+version: "1.2"
+checked: "2026-11-05"
+sources: [slsa-threats]
+threats:
+  - {id: A, name: "Producer", example: "SpySheriff"}
+  - {id: B, name: "Authoring & reviewing", example: "SushiSwap"}
+  - {id: C, name: "Source code management", example: "PHP"}
+  - {id: D, name: "External build parameters", example: "The Great Suspender"}
+  - {id: E, name: "Build process", example: "SolarWinds"}
+  - {id: F, name: "Artifact publication", example: "CodeCov"}
+  - {id: G, name: "Distribution channel", example: "Attacks on Package Mirrors"}
+  - {id: H, name: "Package selection", example: "Browserify typosquatting"}
+  - {id: I, name: "Usage", example: "Default credentials (Apache Superset)"}
+  - {id: dependency, name: "Dependency threats", example: "event-stream"}

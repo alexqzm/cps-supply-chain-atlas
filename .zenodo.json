@@ -1,0 +1,50 @@
+{
+  "title": "cps-supply-chain-atlas: атлас атак на цепочки поставок и обновления ПО киберфизических систем",
+  "upload_type": "dataset",
+  "version": "0.1.0",
+  "language": "rus",
+  "license": "cc-by-4.0",
+  "creators": [
+    {
+      "name": "Kuzmin, Alexander",
+      "orcid": "0000-0002-0393-412X"
+    }
+  ],
+  "description": "<p>Набор данных об атаках на цепочки создания, выпуска, доставки и загрузки ПО киберфизических систем: 27 записей (21 инцидент и 6 исследовательских демонстраций, 2010–2026 гг.; 16 прямо касаются КФС), 116 фактов, каждый — пересказ со ссылкой на один из 44 источников с датой сверки.</p><p>Для каждой записи указаны позиция нарушителя в цепочке, техники MITRE ATT&amp;CK v20 (с отметкой, приводит ли этот случай сам MITRE), угрозы SLSA v1.2 и оценка автора: какие свидетельства графа доказательств SCII при явно указанных условиях опровергли бы атаку, не могли бы быть предъявлены или были бы обойдены. Артефакты ГОСТ Р 56939-2024 выводятся из свидетельств по сопоставлению rbpo-evidence.</p><p>Данные — YAML с проверкой по JSON Schema, выгрузки — JSON и CSV, инструменты проверки и выгрузки — на Python. Данные распространяются по CC BY 4.0, код — по Apache-2.0.</p>",
+  "keywords": [
+    "software supply chain",
+    "cyber-physical systems",
+    "industrial control systems",
+    "firmware update",
+    "MITRE ATT&CK",
+    "SLSA",
+    "GOST R 56939-2024",
+    "evidence graph"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/alexqzm/cps-supply-chain-atlas",
+      "relation": "isSupplementTo",
+      "resource_type": "dataset",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23833592",
+      "relation": "references",
+      "resource_type": "software",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "https://github.com/alexqzm/rbpo-evidence",
+      "relation": "references",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/alexqzm/source-match",
+      "relation": "references",
+      "resource_type": "software",
+      "scheme": "url"
+    }
+  ]
+}

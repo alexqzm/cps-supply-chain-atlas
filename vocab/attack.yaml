@@ -1,0 +1,46 @@
+# Техники и объекты MITRE ATT&CK, на которые ссылаются записи атласа.
+#
+# Версия: ATT&CK v20 (контент v20.0). Идентификаторы и названия сверены 05.11.2026 по страницам
+# attack.mitre.org: матрица ICS, техники T0862, T1195, T1195.002, кампания C0028. В ATT&CK for ICS
+# часть идентификаторов изменилась (например, изменение встроенного ПО — T1693 с подтехниками),
+# поэтому для каждой записи атласа указывается версия ATT&CK.
+# Сюда включены только техники и объекты, используемые в записях атласа.
+
+schema: cps-atlas/vocab/attack/v1
+version: "v20"
+checked: "2026-11-05"
+sources: [mitre-ics-matrix, mitre-t0862, mitre-t1195, mitre-t1195-002, mitre-c0028]
+techniques:
+  # ATT&CK for ICS
+  - {id: T0862, domain: ics, name: "Supply Chain Compromise"}
+  - {id: T0843, domain: ics, name: "Program Download"}
+  - {id: T0843.003, domain: ics, name: "Program Download: Program Append"}
+  - {id: T0889, domain: ics, name: "Modify Program"}
+  - {id: T0821, domain: ics, name: "Modify Controller Tasking"}
+  - {id: T1693, domain: ics, name: "Modify Firmware"}
+  - {id: T1693.001, domain: ics, name: "Modify Firmware: System Firmware"}
+  - {id: T1695.001, domain: ics, name: "Block Communications: Serial COM"}
+  - {id: T0813, domain: ics, name: "Denial of Control"}
+  - {id: T0822, domain: ics, name: "External Remote Services"}
+  - {id: T0859, domain: ics, name: "Valid Accounts"}
+  - {id: T0831, domain: ics, name: "Manipulation of Control"}
+  - {id: T0826, domain: ics, name: "Loss of Availability"}
+  - {id: T0816, domain: ics, name: "Device Restart/Shutdown"}
+  - {id: T0851, domain: ics, name: "Rootkit"}
+  - {id: T0847, domain: ics, name: "Replication Through Removable Media"}
+  - {id: T0863, domain: ics, name: "User Execution"}
+  - {id: T0809, domain: ics, name: "Data Destruction"}
+  - {id: T0829, domain: ics, name: "Loss of View"}
+  # ATT&CK Enterprise
+  - {id: T1195, domain: enterprise, name: "Supply Chain Compromise"}
+  - {id: T1195.001, domain: enterprise, name: "Supply Chain Compromise: Compromise Software Dependencies and Development Tools"}
+  - {id: T1195.002, domain: enterprise, name: "Supply Chain Compromise: Compromise Software Supply Chain"}
+objects:
+  - {id: S0093, kind: software, name: "Backdoor.Oldrea"}
+  - {id: S0562, kind: software, name: "SUNSPOT"}
+  - {id: G0034, kind: group, name: "Sandworm Team"}
+  - {id: G0035, kind: group, name: "Dragonfly"}
+  - {id: G0088, kind: group, name: "TEMP.Veles"}
+  - {id: C0024, kind: campaign, name: "SolarWinds Compromise"}
+  - {id: C0028, kind: campaign, name: "2015 Ukraine Electric Power Attack"}
+  - {id: C0057, kind: campaign, name: "3CX Supply Chain Attack"}

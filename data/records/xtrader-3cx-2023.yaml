@@ -1,0 +1,75 @@
+id: xtrader-3cx-2023
+title: "X_TRADER и 3CX: атака на цепочку поставок через другую атаку на цепочку поставок"
+aliases: ["3CX", "X_TRADER", "C0057"]
+type: incident
+cps_relevance: general
+relevance_note: >-
+  Троянизированный X_TRADER, по данным Symantec, оказался и в двух организациях критической
+  инфраструктуры энергетического сектора. Каскад показывает, как компрометация ПО одного
+  поставщика переходит в сборочную среду другого (оценка автора).
+year: 2023
+sectors: [energy, finance, it-general]
+target: "Установщик X_TRADER (Trading Technologies); сборочные среды и приложение 3CX DesktopApp"
+summary: >-
+  Первоначальная компрометация сети 3CX произошла через троянизированный X_TRADER с сайта
+  Trading Technologies. Платформа была снята с поддержки в 2020 г., но в 2022 г. ещё
+  загружалась с сайта компании, а её установщик был подписан сертификатом Trading Technologies.
+  Нарушитель дошёл до сборочных сред 3CX для Windows и macOS, а с сайта 3CX распространялась
+  троянизированная версия 3CX DesktopApp. Symantec нашла троянизированный X_TRADER также у двух
+  организаций энергетического сектора и двух организаций биржевой торговли.
+positions: [upstream, build]
+facts:
+  - text: >-
+      Первоначальная компрометация сети 3CX произошла через вредоносное ПО с сайта Trading
+      Technologies: платформа X_TRADER, по сообщениям снятая с поддержки в 2020 г., в 2022 г. ещё
+      была доступна для загрузки с сайта компании.
+    sources: [mandiant-3cx]
+  - text: >-
+      Установщик был подписан сертификатом с субъектом Trading Technologies International, Inc.,
+      срок действия которого истекал в октябре 2022 г.
+    sources: [mandiant-3cx]
+  - text: >-
+      Нарушитель скомпрометировал сборочные среды 3CX для Windows и macOS; с сайта 3CX загружалась
+      троянизированная версия 3CX DesktopApp (18.12.416 и более ранние).
+    sources: [mandiant-3cx]
+  - text: >-
+      Mandiant назвала это первым случаем, когда атака на цепочку поставок ПО привела к другой
+      такой атаке.
+    sources: [mandiant-3cx]
+  - text: >-
+      Троянизированный установщик X_TRADER_r7.17.90p608.exe, подписанный Trading Technologies
+      International, Inc., устанавливал модульный бэкдор Veiledsignal; помимо 3CX, взломаны две
+      организации критической инфраструктуры энергетического сектора (в США и в Европе) и две
+      организации биржевой торговли.
+    sources: [symantec-xtrader]
+timeline:
+  - {date: "2023-04-20", event: "Публикация Mandiant о связи 3CX и X_TRADER", sources: [mandiant-3cx]}
+  - {date: "2023-04-21", event: "Публикация Symantec о жертвах в энергетическом секторе", sources: [symantec-xtrader]}
+attack:
+  version: v20
+  techniques:
+    - {id: T1195.002, basis: mitre, sources: [mitre-t1195-002]}
+  objects:
+    - {id: C0057, sources: [mitre-t1195-002]}
+slsa:
+  version: "1.2"
+  threats:
+    - {id: E, basis: author, note: "компрометация сборочных сред 3CX"}
+scii:
+  scope: in
+  assessed: "2026-11-05"
+  evidence:
+    - evidence: s42
+      state: P
+      condition: "Проверяется подпись установщика X_TRADER."
+      rationale: "Установщик подписан действительным сертификатом Trading Technologies International, Inc."
+    - evidence: s24
+      state: F
+      condition: >-
+        Вредоносный код внесён в сборочной среде 3CX, а выпуск сверяется с независимой пересборкой
+        той же ревизии.
+      rationale: "Троянизированное приложение не совпадёт с результатом независимой сборки."
+confidence: high
+notes:
+  - "Mandiant не описывает, как доступ к сборочным средам использован для получения троянизированных выпусков; условие s24 это учитывает."
+  - "Распространение снятого с поддержки ПО не покрывается ни одним свидетельством SCII."
