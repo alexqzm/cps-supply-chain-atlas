@@ -13,8 +13,8 @@
 
 | Каталог | Содержимое |
 |---|---|
-| [`data/records/`](data/records) | 27 записей: 21 инцидент и 6 демонстраций, 2010–2026 гг.; 16 прямо касаются КФС |
-| [`data/sources.yaml`](data/sources.yaml) | 44 источника с датой сверки; 116 фактов записей ссылаются на них |
+| [`data/records/`](data/records) | 28 записей: 22 инцидента и 6 демонстраций, 2010–2026 гг.; 17 прямо касаются КФС |
+| [`data/sources.yaml`](data/sources.yaml) | 47 источников с датой сверки; 125 фактов записей ссылаются на них |
 | [`vocab/`](vocab) | свидетельства SCII и артефакты ГОСТ Р 56939-2024, позиции нарушителя, отрасли, ATT&CK v20, SLSA 1.2 |
 | [`schema/`](schema) | JSON Schema записи и списка источников |
 | [`exports/`](exports) | `atlas.json` и таблицы CSV: записи, факты, свидетельства, техники, источники |
@@ -59,14 +59,15 @@ scii:
   штатного конвейера (подпись агента, аттестация происхождения) подтверждаются, а атаку
   опровергает только независимая пересборка (`s24`) с воспроизводимостью (`s23`). Всего `s24`
   опровергает атаку в 5 записях.
-- **У КФС свой путь атаки — загрузка в устройство.** Из 16 записей, прямо касающихся КФС, 9
+- **У КФС свой путь атаки — загрузка в устройство.** Из 17 записей, прямо касающихся КФС, 9
   останавливаются свидетельствами устройства (`s51`, `s53`, `s54`), и 8 из них не сопоставлены ни с
   одной угрозой SLSA: Stuxnet, Украина 2015, TRITON, Jeep Cherokee, PLC-Blaster, Rogue7,
   ControlLogix, головные устройства DoFun. Нарушитель загружает код в устройство в обход цепочки
   выпуска, и остановить его может только проверка на самом устройстве.
-- **Граница метода.** 5 записей SCII не останавливает: угроза со стороны производителя (Contec
-  CMS8000, node-ipc, BADBOX 2.0), атака через канал управления (KA-SAT) и компрометация
-  аппаратного корня доверия (Thrangrycat).
+- **Граница метода.** 6 записей SCII не останавливает: угроза со стороны производителя (Contec
+  CMS8000, node-ipc, BADBOX 2.0), атака через канал управления (KA-SAT, перехват мастер-аккаунтов
+  Li Auto) и компрометация аппаратного корня доверия (Thrangrycat). У Li Auto источники не
+  сообщают об изменении ПО: нарушитель получает учётную запись владельца, и гейту нечего проверять.
 
 ## Использование
 
@@ -121,8 +122,8 @@ cps-atlas check           # проверка и актуальность выг�
 ### Summary (EN)
 
 `cps-supply-chain-atlas` is a dataset of attacks on the software build, release, delivery and
-loading chains of cyber-physical systems: 27 records (21 incidents, 6 research demonstrations,
-2010–2026; 16 directly involving CPS) with 116 facts, each paraphrased and linked to one of 44
+loading chains of cyber-physical systems: 28 records (22 incidents, 6 research demonstrations,
+2010–2026; 17 directly involving CPS) with 125 facts, each paraphrased and linked to one of 47
 sources checked by the author. Records give the attacker position in the chain, MITRE ATT&CK v20
 techniques (marked as listed by MITRE or mapped by the author), SLSA v1.2 threats, and the author's
 assessment of which SCII evidence graph items would refute the attack, could not be presented, or

@@ -179,6 +179,37 @@ sources:
     kind: vendor-report
     language: en
     checked: "2026-11-05"
+  - id: rg-melyuh-liauto-2025
+    title: "Автоэксперт Мелюх: мошенники начали шантажировать владельцев Li Auto в России"
+    publisher: "«Российская газета» (перепечатка Авто Mail)"
+    date: "2025-07-28"
+    url: "https://auto.mail.ru/article/109238-avtoekspert-melyuh-moshenniki-nachali-shantazhirovat-vladeltsev-li-auto-v-rossii/"
+    kind: news
+    language: ru
+    checked: "2026-11-05"
+    note: >-
+      Интервью С. Мелюха, директора «Авилон Электро» (официальный дилер Li Auto), «Российской
+      газете»; страница rg.ru не открывалась, факты сверены по перепечатке со ссылкой на источник.
+      Пересказ интервью есть и на Хабре (habr.com/ru/news/931752, 28.07.2025).
+  - id: autonews-liauto-2025
+    title: "В России стали взламывать кроссоверы Li и требовать с владельцев деньги"
+    authors: ["Михаил Переходько", "Вячеслав Василенко"]
+    publisher: "Autonews.ru (РБК)"
+    date: "2025-07-29"
+    url: "https://www.autonews.ru/news/6888b76b9a7947ab63cd0b5e"
+    kind: news
+    language: ru
+    checked: "2026-11-05"
+    note: "Сверено по AMP-версии страницы (autonews.ru/amp/news/…)."
+  - id: autonews-liauto-2026
+    title: "«Погасли экраны, а потом мне позвонили». Li Auto начали взламывать"
+    authors: ["Дмитрий Александров", "Вячеслав Василенко"]
+    publisher: "Autonews.ru (РБК)"
+    date: "2026-11-02"
+    url: "https://www.autonews.ru/news/6ae87edd9a79478d050ecab3"
+    kind: news
+    language: ru
+    checked: "2026-11-05"
 
   # --- Инциденты общего назначения ---
   - id: ms-advisory-2718704
